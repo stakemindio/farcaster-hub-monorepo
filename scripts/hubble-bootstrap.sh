@@ -4,7 +4,7 @@
 # Simply run the following command to install the latest version of hubble:
 # curl <file location> | bash
 
-REPO="farcasterxyz/hub-monorepo"
+REPO="stakemindio/farcaster-hub-monorepo"
 RAWFILE_BASE="https://raw.githubusercontent.com/$REPO"
 LATEST_TAG="@latest"
 SCRIPT_FILE_PATH="scripts/hubble.sh"
@@ -58,7 +58,7 @@ install_jq() {
 fetch_file_from_repo() {
     local file_path="$1"
     local local_filename="$2"
-    
+
     local download_url
     download_url="$RAWFILE_BASE/$LATEST_TAG/$file_path?t=$(date +%s)"
 
@@ -70,7 +70,7 @@ fetch_file_from_repo() {
 do_bootstrap() {
     # Make the ~/hubble directory if it doesn't exist
     mkdir -p ~/hubble
-    
+
     local tmp_file
     tmp_file=$(mktemp)
     fetch_file_from_repo "$SCRIPT_FILE_PATH" "$tmp_file"
